@@ -270,6 +270,8 @@ def scrape():
         "Hemisphere Images": hemi_list
     }
 
+    browser.quit()
+
     return(scraping_results)
 
 

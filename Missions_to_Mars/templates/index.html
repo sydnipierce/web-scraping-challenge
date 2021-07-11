@@ -26,7 +26,11 @@
                 <div class="box">
                     <h1>Latest Mars News</h1>
                     <div class="dropdown-divider"></div>
-                    <div id="mars-news"></div>
+                    <div id="mars-news">
+                        {% for news_item in mars["Latest News"] %}
+                            <p>{{ news_item.Title }}<br>{{ news_item.Description }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
