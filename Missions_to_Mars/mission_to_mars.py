@@ -190,6 +190,12 @@ def scrape():
 
     # Put correct header on table
     clean_facts_df.columns = header_row
+  
+    column_names = {'Mars - Earth Comparison': 'Measure',
+               'Mars': 'Value'}
+
+    clean_facts_df.rename(columns=column_names,
+          inplace=True)
 
     clean_facts_df
 
