@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 import pymongo
-from mission_to_mars import scraping_results
+from mission_to_mars import scrape
 
 app = Flask(__name__)
 
@@ -12,15 +12,26 @@ db = client.mars
 
 db.latest_data.drop()
 
-db.latest_data.insert(scraping_results)
+db.latest_data.insert(scrape())
 
-@app.route("/")
+@app.route('/')
 def index():
-#    listings = mongo.db.listings.find_one()
-    return render_template("index.html")
+    data = list(db.latest_data.find())
+    print(data)
+
+    news_title = data["Latest News"]["Titles"][0]
+    news_blurb = data["Latest News"]["Blurbs"][0]
+
+    feat_image = data["Featured Image"]
+
+    facts_table = data["Facts"]
+
+    hemi_images = data["Hemisphere Images"]
+
+    return render_template('index.html', )
 
 
-@app.route("/scrape")
+@app.route('/scrape')
 def scraper():
     mars = mongo.db.mars
     mars_data = mission_to_mars.scrape()
