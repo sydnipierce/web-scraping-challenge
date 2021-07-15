@@ -10,34 +10,29 @@ client = pymongo.MongoClient(conn)
 
 db = client.mars
 
-db.latest_data.drop()
+@app.route('/scrape')
+def scraper():
+    db.latest_data.drop()
 
-db.latest_data.insert(scrape())
+    db.latest_data.insert_one(scrape())
+
+    return redirect("/", code=302)
 
 @app.route('/')
 def index():
     data = list(db.latest_data.find())
     print(data)
+    news_title = data[0]['Latest News'][0]['Titles'][0]
+    
+    news_blurb = data[0]['Latest News'][1]['Blurbs'][0]
 
-    news_title = data["Latest News"]["Titles"][0]
-    news_blurb = data["Latest News"]["Blurbs"][0]
+    feat_image = data[0]["Featured Image"]
 
-    feat_image = data["Featured Image"]
+    facts_table = data[0]["Facts"]
 
-    facts_table = data["Facts"]
+    hemi_images = data[0]["Hemisphere Images"][0]
 
-    hemi_images = data["Hemisphere Images"]
-
-    return render_template('index.html', )
-
-
-@app.route('/scrape')
-def scraper():
-    mars = mongo.db.mars
-    mars_data = mission_to_mars.scrape()
-    mars.update({}, mars_data, upsert=True)
-    return redirect("/", code=302)
-
+    return render_template('index.html', news_title=news_title)
 
 if __name__ == "__main__":
     app.run(debug=True)

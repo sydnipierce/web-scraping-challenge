@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Home - Mission to Mars</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -27,9 +27,8 @@
                     <h1>Latest Mars News</h1>
                     <div class="dropdown-divider"></div>
                     <div id="mars-news">
-                        {% for news_item in mars["Latest News"] %}
-                            <p>{{ news_item.Title }}<br>{{ news_item.Description }}</p>
-                        {% endfor %}
+                        <h1>{{ news_title }}</h1>
+                        <p>{{ news_blurb }}</p>
                     </div>
                 </div>
             </div>
@@ -39,7 +38,7 @@
             <div class="box skyblue">
                 <h1>Featured Mars Image</h1>
                 <div class="dropdown-divider"></div>
-                <img class="float img-fluid" id="latest-photo" src=".png">
+                <img class="float img-fluid" id="latest-photo" src="">
             </div>
           </div>
           <div class="col-sm-12 col-md-4">

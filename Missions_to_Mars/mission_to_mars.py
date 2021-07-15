@@ -33,7 +33,7 @@ def scrape():
     soup = bs(response.text, 'html.parser')
 
     # Print site's HTML content
-    print(soup.prettify())
+    #print(soup.prettify())
 
 
     # In[4]:
@@ -67,7 +67,7 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
 
-    print(soup.prettify())
+    #print(soup.prettify())
 
 
     # In[8]:
@@ -131,7 +131,7 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
 
-    print(soup.prettify())
+    #print(soup.prettify())
 
 
     # In[14]:
@@ -221,7 +221,7 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
 
-    print(soup.prettify())
+    #print(soup.prettify())
 
 
     # In[23]:
@@ -273,5 +273,3 @@ def scrape():
     browser.quit()
 
     return(scraping_results)
-
-
