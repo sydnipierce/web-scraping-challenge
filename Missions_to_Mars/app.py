@@ -21,7 +21,7 @@ def scraper():
 @app.route('/')
 def index():
     data = list(db.latest_data.find())
-    print(data)
+    
     news_title = data[0]['Latest News'][0]['Titles'][0]
     
     news_blurb = data[0]['Latest News'][1]['Blurbs'][0]
@@ -30,9 +30,9 @@ def index():
 
     facts_table = data[0]["Facts"]
 
-    hemi_images = data[0]["Hemisphere Images"][0]
+    hemi_images = data[0]["Hemisphere Images"]
 
-    return render_template('index.html', news_title=news_title, news_blurb=news_blurb, feat_image=feat_image, facts_table=facts_table)
+    return render_template('index.html', news_title=news_title, news_blurb=news_blurb, feat_image=feat_image, facts_table=facts_table, hemi_images=hemi_images)
 
 if __name__ == "__main__":
     app.run(debug=True)
