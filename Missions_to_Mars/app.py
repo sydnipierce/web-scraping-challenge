@@ -32,7 +32,7 @@ def index():
 
     hemi_images = data[0]["Hemisphere Images"][0]
 
-    return render_template('index.html', news_title=news_title)
+    return render_template('index.html', news_title=news_title, news_blurb=news_blurb, feat_image=feat_image, facts_table=facts_table)
 
 if __name__ == "__main__":
     app.run(debug=True)

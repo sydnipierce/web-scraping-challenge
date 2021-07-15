@@ -27,7 +27,7 @@
                     <h1>Latest Mars News</h1>
                     <div class="dropdown-divider"></div>
                     <div id="mars-news">
-                        <h1>{{ news_title }}</h1>
+                        <p>{{ news_title }}</p>
                         <p>{{ news_blurb }}</p>
                     </div>
                 </div>
@@ -38,14 +38,14 @@
             <div class="box skyblue">
                 <h1>Featured Mars Image</h1>
                 <div class="dropdown-divider"></div>
-                <img class="float img-fluid" id="latest-photo" src="">
+                <img class="float img-fluid" id="latest-photo" src="{{ feat_image }}">
             </div>
           </div>
           <div class="col-sm-12 col-md-4">
             <div class="box skyblue">
                 <h1>Mars Facts</h1>
                 <div class="dropdown-divider"></div>
-                
+                <div>{{ facts_table }}</div>
             </div>
           </div>
         </div>
@@ -54,7 +54,9 @@
                 <div class="box">
                     <h1>Mars Hemispheres</h1>
                     <div class="dropdown-divider"></div>
-                    <div id="mars-hemispheres"></div>
+                    <div id="mars-hemispheres">
+                        
+                    </div>
                 </div>
             </div>
         </div>
